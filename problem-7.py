@@ -38,7 +38,7 @@ def divide (dividend:int, divisor:int) -> int:
     a = abs(dividend)
     b = abs(divisor)
     sign = -1 if (dividend<0) ^ (divisor<0) else 1
-    if divisor > dividend: return 0
+    if a < b: return 0
     result = 0
     while a >= b:
         temp = b
@@ -53,34 +53,30 @@ def divide (dividend:int, divisor:int) -> int:
 
 
 if __name__ == "__main__":
-    # basic cases
-    # assert divide(10, 3) == 3
-    # assert divide(7, -3) == -2
-    # assert divide(-7, 3) == -2
-    # assert divide(-7, -3) == 2
+    assert divide(10, 3) == 3
+    assert divide(7, -3) == -2
+    assert divide(-7, 3) == -2
+    assert divide(-7, -3) == 2
 
-    # # divisible
-    # assert divide(9, 3) == 3
-    # assert divide(100, 10) == 10
+    # divisible
+    assert divide(9, 3) == 3
+    assert divide(100, 10) == 10
 
-    # # divisor bigger than dividend
-    # assert divide(3, 5) == 0
-    # assert divide(-3, 5) == 0
+    # divisor bigger than dividend
+    assert divide(3, 5) == 0
+    assert divide(-3, 5) == 0
 
-    # # divide by 1 and -1
-    # assert divide(12345, 1) == 12345
-    # assert divide(12345, -1) == -12345
+    # divide by 1 and -1
+    assert divide(12345, 1) == 12345
+    assert divide(12345, -1) == -12345
 
-    # # zero dividend
-    # assert divide(0, 5) == 0
+    # zero dividend
+    assert divide(0, 5) == 0
 
-    # # edge 32-bit
-    # assert divide(2147483647, 1) == 2147483647
-    # assert divide(-2147483648, 1) == -2147483648
+    # edge 32-bit
+    assert divide(2147483647, 1) == 2147483647
+    assert divide(-2147483648, 1) == -2147483648
 
-    # # overflow case
-    # assert divide(-2147483648, -1) == 2147483647
-
-    # print("All tests passed!")
-    #print(divide(10,3))  
-    print(divide(10,3))
+    # overflow case
+    assert divide(-2147483648, -1) == 2147483647
+    print("All tests passed!")
